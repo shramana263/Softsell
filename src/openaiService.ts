@@ -1,14 +1,14 @@
 import { ChatOpenAI } from "@langchain/openai";
 
 // Add this declaration so TypeScript knows about import.meta.env
-interface ImportMetaEnv {
-  readonly VITE_OPENAI_API_KEY: string;
-  // add other env variables here if needed
-}
+// interface ImportMetaEnv {
+//   readonly VITE_OPENAI_API_KEY: string;
+//   // add other env variables here if needed
+// }
 
-interface ImportMeta {
-  readonly env: ImportMetaEnv;
-}
+// interface ImportMeta {
+//   readonly env: ImportMetaEnv;
+// }
 
 const llm = new ChatOpenAI({
     openAIApiKey: import.meta.env.VITE_OPENAI_API_KEY,
