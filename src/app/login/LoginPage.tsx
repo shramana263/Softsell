@@ -5,9 +5,13 @@ import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import ModeToggle from "@/components/ModeToggle"
 import { ArrowLeft, Eye, EyeOff } from "lucide-react"
-import { Link } from "react-router-dom"
+import type { Page } from "../../App"
 
-export default function LoginPage() {
+interface LoginPageProps {
+  navigate: (page: Page) => void
+}
+
+export default function LoginPage({ navigate }: LoginPageProps) {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [showPassword, setShowPassword] = useState(false)
@@ -53,14 +57,18 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="md:px-20 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => navigate("home")}
+            className="flex items-center gap-2 focus:outline-none"
+          >
             <div className="relative h-8 w-8 overflow-hidden rounded-full bg-gradient-to-br from-teal-500 to-blue-600">
               <div className="absolute inset-0 flex items-center justify-center text-white font-bold">S</div>
             </div>
             <span className="text-xl font-bold">SoftSell</span>
-          </Link>
+          </button>
           <ModeToggle />
         </div>
       </header>
@@ -69,10 +77,14 @@ export default function LoginPage() {
         <div className="w-full max-w-md">
           <div className="rounded-xl border bg-card p-6 shadow-md">
             <div className="mb-6">
-              <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground">
+              <button
+                type="button"
+                onClick={() => navigate("home")}
+                className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground"
+              >
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to home
-              </Link>
+              </button>
             </div>
 
             <div className="space-y-2 text-center mb-8">
@@ -97,9 +109,13 @@ export default function LoginPage() {
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <Label htmlFor="password">Password</Label>
-                  <Link to="#" className="text-xs text-primary hover:underline">
+                  <button
+                    type="button"
+                    onClick={() => alert("Reset password feature coming soon!")}
+                    className="text-xs text-primary hover:underline"
+                  >
                     Forgot password?
-                  </Link>
+                  </button>
                 </div>
                 <div className="relative">
                   <Input
@@ -169,9 +185,12 @@ export default function LoginPage() {
             <div className="mt-6 text-center text-sm">
               <p className="text-muted-foreground">
                 Don't have an account?{" "}
-                <Link to="#" className="text-primary hover:underline">
+                <span
+                  className="text-primary cursor-pointer hover:underline"
+                  onClick={() => alert("Sign up coming soon!")}
+                >
                   Sign up
-                </Link>
+                </span>
               </p>
             </div>
           </div>
@@ -184,15 +203,24 @@ export default function LoginPage() {
             &copy; {new Date().getFullYear()} SoftSell Inc. All rights reserved.
           </p>
           <div className="flex gap-4 mt-4 sm:mt-0">
-            <Link to="#" className="text-xs text-muted-foreground hover:text-foreground">
+            <span
+              className="text-xs text-muted-foreground hover:text-foreground cursor-pointer"
+              onClick={() => alert("Terms coming soon!")}
+            >
               Terms
-            </Link>
-            <Link to="#" className="text-xs text-muted-foreground hover:text-foreground">
+            </span>
+            <span
+              className="text-xs text-muted-foreground hover:text-foreground cursor-pointer"
+              onClick={() => alert("Privacy coming soon!")}
+            >
               Privacy
-            </Link>
-            <Link to="#" className="text-xs text-muted-foreground hover:text-foreground">
+            </span>
+            <span
+              className="text-xs text-muted-foreground hover:text-foreground cursor-pointer"
+              onClick={() => alert("Contact coming soon!")}
+            >
               Contact
-            </Link>
+            </span>
           </div>
         </div>
       </footer>

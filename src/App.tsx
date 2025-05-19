@@ -20,7 +20,7 @@ function App() {
   return (
     <>
       {currentPage === "home" && <HomePage navigate={navigate} />}
-      {/* {currentPage === "login" && <LoginPage navigate={navigate} />} */}
+      {currentPage === "login" && <LoginPage navigate={navigate} />}
     </>
   )
 }

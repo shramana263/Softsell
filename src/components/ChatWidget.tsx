@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { getChatResponse } from "../geminiService";
+import { IoMdClose } from "react-icons/io";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -49,7 +50,7 @@ const ChatWidget: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="bg-teal-600 text-white p-4 rounded-full shadow-lg hover:bg-teal-700 transition"
       >
-        {isOpen ? "Close" : "Chat"}
+        {isOpen ? <IoMdClose /> : "Chat"}
       </button>
 
       {/* Chat Window */}
