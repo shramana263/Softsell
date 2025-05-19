@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getChatResponse } from "../geminiService";
 import { IoMdClose } from "react-icons/io";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
 interface ChatMessage {
   role: "user" | "assistant";
@@ -50,7 +51,7 @@ const ChatWidget: React.FC = () => {
         onClick={() => setIsOpen(!isOpen)}
         className="bg-teal-600 text-white p-4 rounded-full shadow-lg hover:bg-teal-700 transition"
       >
-        {isOpen ? <IoMdClose /> : "Chat"}
+        {isOpen ? <IoMdClose /> : <IoChatbubbleEllipsesOutline />}
       </button>
 
       {/* Chat Window */}
